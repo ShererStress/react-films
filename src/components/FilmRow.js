@@ -11,7 +11,7 @@ class FilmRow extends Component {
 
   }
 
-  handleDetailsClick(film) {
+  handleDetailsClick(event, film) {
     console.log(`Fetching details for ${film}`);
   }
 
@@ -19,7 +19,10 @@ class FilmRow extends Component {
   render() {
     let yearData = (new Date(this.props.singleFilm.release_date)).getFullYear();
     return (
-      <div onClick={this.handleDetailsClick.bind(this, this.props.singleFilm.id)} className="film-row">
+      <div onClick={ (e) => {
+        this.handleDetailsClick(e, this.props.singleFilm.id)
+      }}
+         className="film-row">
         <FilmPoster posterPath={this.props.singleFilm.poster_path} />
         <div className="film-summary">
           <h1>TITLE: {this.props.singleFilm.title} </h1>
