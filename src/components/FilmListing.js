@@ -6,7 +6,7 @@ class FilmListing extends Component {
   constructor(props) {
     super(props);
 
-    this.handleFilterClick = this.handleFilterClick.bind(this);
+    // this.handleFilterClick = this.handleFilterClick.bind(this);
 
   }
 
