@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FilmPoster from './FilmPoster.js';
+import Fave from './Fave.js';
 
 class FilmRow extends Component {
   render() {
@@ -11,6 +12,7 @@ class FilmRow extends Component {
           <h1>TITLE: {this.props.singleFilm.title} </h1>
           <p>YEAR: {yearData}</p>
         </div>
+        <Fave />
       </div>
     );
   }
