@@ -11,6 +11,7 @@ class Fave extends Component {
 
   handleClick(thisEvent) {
     console.log("CLICK INBOUND");
+    thisEvent.stopPropagation();
   }
 
   render() {
