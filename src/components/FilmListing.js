@@ -19,10 +19,13 @@ class FilmListing extends Component {
   }
 
   render() {
-
-    let allFilms = this.props.filmData.map(function(film, index){
+    let allFilms = this.props.filmData.map((film, index) => {
+      let isThisAFave = false;
+      if (this.props.faves.indexOf(film) != -1) {
+        isThisAFave = true;
+      }
       return (
-        <FilmRow singleFilm={film} key={film.id}/>
+        <FilmRow singleFilm={film} key={film.id} onFaveToggle={() => this.props.handleFaveToggle(film)} isFave={isThisAFave}/>
       )
     });
 
@@ -40,7 +43,7 @@ class FilmListing extends Component {
           this.handleFilterClick(e, "faves")
         }}>
           FAVES
-          <span className="section-count">0</span>
+          <span className="section-count">{this.props.faves.length}</span>
         </div>
       </div>
       {allFilms}

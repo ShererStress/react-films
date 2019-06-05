@@ -8,18 +8,20 @@ class Fave extends Component {
     // this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      isFave: false,
+      // isFave: false,
     }
 
   }
 
   handleClick(thisEvent) {
     thisEvent.stopPropagation();
-    console.log(this.state.isFave);
+    console.log("Fave click");
 
-    this.setState({ isFave: !this.state.isFave}, () => {
-      console.log(this.state.isFave);
-    });
+    this.props.onFaveToggle();
+
+    // this.setState({ isFave: !this.state.isFave}, () => {
+    //   console.log(this.state.isFave);
+    // });
 
   }
 
@@ -27,7 +29,7 @@ class Fave extends Component {
 
     let classAssignment;
     let iconData;
-    if(this.state.isFave) {
+    if(this.props.isFave) {
       classAssignment = "film-row-fave remove_from_queue";
       iconData = "remove_from_queue";
     } else {
