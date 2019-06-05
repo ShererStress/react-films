@@ -12,7 +12,7 @@ class FilmRow extends Component {
   }
 
   handleDetailsClick(event, film) {
-    console.log(`Fetching details for ${film}`);
+    this.props.handleAlterCurrent(film);
   }
 
 

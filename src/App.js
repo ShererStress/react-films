@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
 
     this.handleFaveToggle = this.handleFaveToggle.bind(this);
+    this.handleAlterCurrent = this.handleAlterCurrent.bind(this);
 
     this.state = {
       filmData: filmData.films,
@@ -19,7 +20,6 @@ class App extends Component {
   }
 
   handleFaveToggle(film) {
-    console.log(film);
 
     let favoritesCopy = this.state.faves.slice();
     let filmIndex = favoritesCopy.indexOf(film);
@@ -32,11 +32,15 @@ class App extends Component {
     this.setState({faves: favoritesCopy});
   };
 
+  handleAlterCurrent(film) {
+    this.setState({current: film})
+  };
+
   render() {
     return (
       <div className="App">
         <div className="film-library">
-          <FilmListing filmData={this.state.filmData} faves={this.state.faves} handleFaveToggle={this.handleFaveToggle}/>
+          <FilmListing filmData={this.state.filmData} faves={this.state.faves} handleFaveToggle={this.handleFaveToggle} handleAlterCurrent={this.handleAlterCurrent}/>
           <FilmDetails filmData={this.state.filmData} current={this.state.current}/>
         </div>
       </div>

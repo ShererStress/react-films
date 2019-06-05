@@ -15,13 +15,8 @@ class Fave extends Component {
 
   handleClick(thisEvent) {
     thisEvent.stopPropagation();
-    console.log("Fave click");
 
     this.props.onFaveToggle();
-
-    // this.setState({ isFave: !this.state.isFave}, () => {
-    //   console.log(this.state.isFave);
-    // });
 
   }
 

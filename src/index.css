@@ -13,7 +13,7 @@ html,
 body,
 #root {
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 img {
@@ -39,7 +39,7 @@ figure {
   flex: 1 0 33.333333%;
   height: 100%;
   padding: 3.6em 0 0;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   background-color: #f0f0f0;
 }
 
@@ -52,6 +52,7 @@ figure {
   flex: 0 1 66.666666%;
   background-color: #f0f0f0;
 }
+
 
 .film-row {
   display: grid;

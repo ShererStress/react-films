@@ -18,14 +18,23 @@ class FilmListing extends Component {
     this.setState({filter: filter})
   }
 
+
+
   render() {
-    let allFilms = this.props.filmData.map((film, index) => {
+    let selectedFilmArray;
+    if (this.state.filter === "all") {
+      selectedFilmArray = this.props.filmData;
+    } else {
+      selectedFilmArray = this.props.faves;
+    }
+
+    let allFilms = selectedFilmArray.map((film, index) => {
       let isThisAFave = false;
       if (this.props.faves.indexOf(film) != -1) {
         isThisAFave = true;
       }
       return (
-        <FilmRow singleFilm={film} key={film.id} onFaveToggle={() => this.props.handleFaveToggle(film)} isFave={isThisAFave}/>
+        <FilmRow singleFilm={film} key={film.id} onFaveToggle={() => this.props.handleFaveToggle(film)} isFave={isThisAFave} handleAlterCurrent={() => this.props.handleAlterCurrent(film)}/>
       )
     });
 
